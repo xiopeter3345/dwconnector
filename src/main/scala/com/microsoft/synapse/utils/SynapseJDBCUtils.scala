@@ -378,7 +378,7 @@ object SynapseJDBCUtils {
     //val queries:Array[String] = Array[String](dbScopedCredentialScript, externalDataSourceScript, externalFileFormatScript, externalTableScript,
     //  dropExternalTableScript, dropExternalFileFormatScript, dropExternalDataSourceScript, dropDatabaseScopedCredentialScript)
 
-    logger.info(s"Script to send data to storage through polybase: ${ for(query <- queries) println(query)}")
+    logger.info(s"Script to send data to storage through polybase: ${ for(query <- queries) logger.info(query)}")
     executeSqlBatch(conn, queries)
 
     if(!parameters.contains("externaldatasource")) {
